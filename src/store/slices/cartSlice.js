@@ -26,12 +26,35 @@ const cartSlice = createSlice({
     },
 
     // INCREASE QUANTITY
+    increaseQuantituy: (state, action) => {
+      return state.map((product) =>
+        product.id === action.payload
+          ? { ...product, quantity: product.quantity + 1 }
+          : product,
+      );
+    },
 
     // DECREASE QUANTITY
+    decreaseQuantituy: (state, action) => {
+      return state.map((product) =>
+        product.id === action.payload
+          ? product.quantity > 1
+            ? {
+                ...product,
+                quantity: product.quantity - 1,
+              }
+            : product
+          : product,
+      );
+    },
 
     // REMOVE FROM CART
+    removeItem: (state, action) => {
+      return state.filter((product) => product.id !== action.payload);
+    },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, increaseQuantituy, decreaseQuantituy, removeItem } =
+  cartSlice.actions;
 export default cartSlice.reducer;

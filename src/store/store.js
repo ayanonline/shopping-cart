@@ -1,6 +1,5 @@
-const { configureStore } = require("@reduxjs/toolkit");
-const { default: cartSlice } = require("./slices/cartSlice");
-
+import { configureStore } from "@reduxjs/toolkit";
+import cartSlice from "./slices/cartSlice";
 const store = configureStore({
   reducer: {
     cart: cartSlice,
