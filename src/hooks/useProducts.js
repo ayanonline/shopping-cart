@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setProducts } from "../store/slices/productSlice";
 
 function useProducts() {
   const [data, setData] = useState(null);
   const [isLoading, seIsLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getAllProducts();
@@ -12,11 +16,12 @@ function useProducts() {
 
   const getAllProducts = async () => {
     try {
-      const responce = await axios({
+      const response = await axios({
         method: "GET",
         url: "https://fakestoreapi.com/products",
       });
-      setData(responce.data);
+      setData(response.data);
+      dispatch(setProducts(response.data));
       seIsLoading(false);
     } catch (error) {
       setError(error);

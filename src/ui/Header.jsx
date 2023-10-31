@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
+  // console.log(cart);
   return (
     <header className="sticky top-0 flex items-center justify-between bg-black px-[20rem] py-4 text-2xl text-white">
       <Link to="/">Logo</Link>

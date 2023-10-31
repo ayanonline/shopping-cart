@@ -1,9 +1,18 @@
 import ProductCard from "../components/ProductCard";
 import useProducts from "../hooks/useProducts";
 import ShimmerProductCard from "../components/ShimmerProductCard";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProducts } from "../store/actions/getProducts";
 
 const Home = () => {
-  const { isLoading, data: products } = useProducts();
+  const { isLoading, products, error } = useSelector((state) => state.products);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log("useEffect called");
+    dispatch(getProducts());
+  }, []);
 
   if (isLoading)
     return (
