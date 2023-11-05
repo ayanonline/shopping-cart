@@ -27,7 +27,7 @@ const Search = () => {
     dispatch(setProducts(result));
   };
   return (
-    <div className="flex w-2/3 items-center rounded-md border p-2">
+    <div className="flex w-2/3 items-center rounded-md border p-2 lg:w-[20rem]">
       <LiaSearchSolid />
       <input
         onChange={(e) => setSearchQuery(e.target.value)}
