@@ -20,13 +20,13 @@ const Cart = () => {
     );
 
   return (
-    <div className="mx-[42rem] my-5">
-      <div className="flex justify-between text-xl">
+    <div className="mx-2 my-5 lg:mx-[42rem]">
+      <div className="flex justify-between lg:text-xl">
         <span>Cart</span>
         <span>Total Price: {totalPrice.toFixed(2)}</span>
       </div>
 
-      <div className="flex flex-col items-center gap-4 p-4">
+      <div className="flex flex-col items-center gap-4 lg:p-4">
         {cart.map((item) => (
           <CartCard key={item.id} item={item} />
         ))}

@@ -27,13 +27,13 @@ const Search = () => {
     dispatch(setProducts(result));
   };
   return (
-    <div className="flex items-center rounded-md border p-2">
+    <div className="flex w-2/3 items-center rounded-md border p-2">
       <LiaSearchSolid />
       <input
         onChange={(e) => setSearchQuery(e.target.value)}
         value={searchQuery}
         type="text"
-        className="bg-black px-2 text-base outline-none"
+        className="bg-black px-2 text-xs outline-none lg:text-base"
         placeholder="search by name"
       />
     </div>

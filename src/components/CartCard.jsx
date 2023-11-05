@@ -10,21 +10,26 @@ const CartCard = ({ item }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex w-[35rem] items-center border-2 px-2 py-3">
+    <div className="flex w-full items-center border-2 px-2 py-3 lg:w-[35rem]">
       <img
         src={image}
         alt="Product image"
-        className="h-[10rem] min-w-[10rem] max-w-[10rem] object-contain"
+        className="h-[5rem] min-w-[5rem] max-w-[5rem] object-contain lg:h-[10rem] lg:min-w-[10rem] lg:max-w-[10rem]"
       />
-      <div className="flex w-full flex-col gap-4 px-4">
-        <div className="flex justify-between text-xl">
+      <div className="flex w-full flex-col px-4 lg:gap-4">
+        <div className="flex justify-between text-sm lg:text-xl">
           <h1>{title.slice(0, 20)}...</h1>{" "}
           <span className="font-bold text-green-500">
             ${(quantity * price).toFixed(2)}
           </span>
         </div>
 
-        <p className="text-sm text-gray-500">{description.slice(0, 60)}...</p>
+        <p
+          className="text-xs text-gray-500
+         lg:text-sm"
+        >
+          {description.slice(0, 60)}...
+        </p>
 
         <div className="mr-1 flex items-center">
           <AiFillStar className="mr-1 text-xl text-green-600" />
